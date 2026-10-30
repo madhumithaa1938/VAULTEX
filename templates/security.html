@@ -1,0 +1,243 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Security centre | VAULTEX
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- PAGE HEADING -->
+
+<section class="page-heading">
+
+    <p class="eyebrow">
+        03 / PROTECTION LAYERS
+    </p>
+
+
+    <h1>
+
+        Security, by<br>
+
+        <em>architecture.</em>
+
+    </h1>
+
+
+    <p class="muted">
+
+        A view of the security mechanisms
+        implemented in this project.
+
+    </p>
+
+</section>
+
+
+
+<!-- SECURITY FEATURES -->
+
+<div class="security-grid">
+
+
+    <!-- AES ENCRYPTION -->
+
+    <article class="panel security-card">
+
+        <span>
+            01 / CONFIDENTIALITY
+        </span>
+
+
+        <h2>
+            AES-256-GCM
+        </h2>
+
+
+        <p>
+
+            Authenticated encryption protects file contents.
+            Each chunk uses its own random nonce
+            and authenticated metadata.
+
+        </p>
+
+
+        <b class="status">
+            IMPLEMENTED IN CODE
+        </b>
+
+    </article>
+
+
+
+    <!-- HMAC INTEGRITY -->
+
+    <article class="panel security-card">
+
+        <span>
+            02 / INTEGRITY
+        </span>
+
+
+        <h2>
+            HMAC-SHA256
+        </h2>
+
+
+        <p>
+
+            A separate secret key produces a signature
+            for the encrypted file.
+            The signature is checked before decryption.
+
+        </p>
+
+
+        <b class="status">
+            IMPLEMENTED IN CODE
+        </b>
+
+    </article>
+
+
+
+    <!-- PASSWORD HASHING -->
+
+    <article class="panel security-card">
+
+        <span>
+            03 / ACCOUNT
+        </span>
+
+
+        <h2>
+            Password hashing
+        </h2>
+
+
+        <p>
+
+            Passwords are stored as Werkzeug
+            password hashes, not as plain text.
+
+        </p>
+
+
+        <b class="status">
+            IMPLEMENTED IN CODE
+        </b>
+
+    </article>
+
+
+
+    <!-- CSRF -->
+
+    <article class="panel security-card">
+
+        <span>
+            04 / REQUESTS
+        </span>
+
+
+        <h2>
+            CSRF protection
+        </h2>
+
+
+        <p>
+
+            Flask-WTF CSRF tokens protect
+            state-changing form submissions.
+
+        </p>
+
+
+        <b class="status">
+            IMPLEMENTED IN CODE
+        </b>
+
+    </article>
+
+
+
+    <!-- HTTPS -->
+
+    <article class="panel security-card">
+
+        <span>
+            05 / TRANSPORT
+        </span>
+
+
+        <h2>
+            HTTPS / TLS
+        </h2>
+
+
+        <p>
+
+            HTTPS must be configured at deployment
+            using a trusted TLS endpoint.
+            Local development is not automatically HTTPS.
+
+        </p>
+
+
+        <b class="status pending">
+            DEPLOYMENT REQUIRED
+        </b>
+
+    </article>
+
+
+
+    <!-- ACCESS CONTROL -->
+
+    <article class="panel security-card">
+
+        <span>
+            06 / ACCESS
+        </span>
+
+
+        <h2>
+            File ownership
+        </h2>
+
+
+        <p>
+
+            Download queries include both the file ID
+            and the signed-in user's ID.
+
+        </p>
+
+
+        <b class="status">
+            IMPLEMENTED IN CODE
+        </b>
+
+    </article>
+
+
+</div>
+
+
+
+<!-- SECURITY DISCLAIMER -->
+
+<p class="disclaimer">
+
+    This page describes project features;
+    it is not a live security audit or a guarantee
+    that the application is production-ready.
+
+</p>
+
+
+{% endblock %}

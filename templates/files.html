@@ -1,0 +1,205 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+My files | VAULTEX
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- PAGE HEADING -->
+
+<section class="page-heading row-between">
+
+    <div>
+
+        <p class="eyebrow">
+            02 / PRIVATE LIBRARY
+        </p>
+
+
+        <h1>
+
+            Your <em>files.</em>
+
+        </h1>
+
+
+        <p class="muted">
+
+            Only files associated with your account
+            appear here.
+
+        </p>
+
+    </div>
+
+
+    <a
+        class="button primary"
+        href="{{ url_for('upload.upload_page') }}"
+    >
+
+        ＋ Upload
+
+    </a>
+
+</section>
+
+
+
+<!-- FILE TABLE -->
+
+<section class="panel table-panel">
+
+
+    {% if files %}
+
+
+    <div class="table-wrap">
+
+        <table>
+
+
+            <thead>
+
+                <tr>
+
+                    <th>FILE NAME</th>
+
+                    <th>SIZE</th>
+
+                    <th>ADDED</th>
+
+                    <th>STATUS</th>
+
+                    <th></th>
+
+                </tr>
+
+            </thead>
+
+
+
+            <tbody>
+
+                {% for file in files %}
+
+
+                <tr>
+
+
+                    <td>
+
+                        <span class="file-mark">
+                            ▤
+                        </span>
+
+                        {{ file["original_filename"] }}
+
+                    </td>
+
+
+
+                    <td>
+
+                        {{ "%.2f"|format(file["file_size"] / 1048576) }}
+                        MB
+
+                    </td>
+
+
+
+                    <td>
+
+                        {{ file["uploaded_at"] }}
+
+                    </td>
+
+
+
+                    <td>
+
+                        <span class="status">
+                            ● Encrypted
+                        </span>
+
+                    </td>
+
+
+
+                    <td>
+
+                        <a
+                            class="text-link"
+                            href="{{ url_for('download.download_file', file_id=file['id']) }}"
+                        >
+
+                            Download ↗
+
+                        </a>
+
+                    </td>
+
+
+                </tr>
+
+
+                {% endfor %}
+
+            </tbody>
+
+
+        </table>
+
+    </div>
+
+
+
+    {% else %}
+
+
+    <!-- EMPTY LIBRARY -->
+
+    <div class="empty-state">
+
+
+        <span>
+            ▤
+        </span>
+
+
+        <h2>
+            Your vault is waiting.
+        </h2>
+
+
+        <p class="muted">
+
+            No files have been stored yet.
+
+        </p>
+
+
+        <a
+            class="button primary"
+            href="{{ url_for('upload.upload_page') }}"
+        >
+
+            Upload your first file
+
+        </a>
+
+
+    </div>
+
+
+    {% endif %}
+
+
+</section>
+
+
+{% endblock %}

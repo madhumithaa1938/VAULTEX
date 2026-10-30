@@ -1,0 +1,179 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Secure upload | VAULTEX
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- PAGE HEADING -->
+
+<section class="page-heading">
+
+    <p class="eyebrow">
+        01 / SECURE TRANSFER
+    </p>
+
+
+    <h1>
+
+        Bring it into<br>
+
+        <em>your vault.</em>
+
+    </h1>
+
+
+    <p class="muted">
+
+        Your file is encrypted in chunks
+        before it is saved to server storage.
+
+    </p>
+
+</section>
+
+
+
+<!-- FILE UPLOAD FORM -->
+
+<form
+    class="panel upload-panel"
+    method="POST"
+    enctype="multipart/form-data"
+>
+
+
+    <input
+        type="hidden"
+        name="csrf_token"
+        value="{{ csrf_token() }}"
+    >
+
+
+    <label
+        class="dropzone"
+        for="file"
+    >
+
+        <span class="upload-symbol">
+            ＋
+        </span>
+
+
+        <strong>
+            Choose a file to encrypt
+        </strong>
+
+
+        <span class="muted">
+
+            PDF, DOCX, TXT, JPG, PNG,
+            ZIP, CSV, XLSX
+
+        </span>
+
+
+        <small>
+            Maximum file size: 100 MB
+        </small>
+
+
+        <input
+            id="file"
+            type="file"
+            name="file"
+            accept=".pdf,.docx,.txt,.jpg,.jpeg,.png,.zip,.csv,.xlsx"
+            required
+        >
+
+    </label>
+
+
+
+    <!-- Selected file information -->
+
+    <div
+        id="selected-file"
+        class="selected-file muted"
+        aria-live="polite"
+    >
+
+        No file selected
+
+    </div>
+
+
+
+    <button
+        class="button primary"
+        type="submit"
+    >
+
+        Encrypt and store
+
+        <span>↗</span>
+
+    </button>
+
+
+</form>
+
+
+
+<!-- SECURITY PROCESS -->
+
+<div class="note-grid">
+
+
+    <div class="note panel">
+
+        <b>
+            01 / ENCRYPT
+        </b>
+
+
+        <p>
+            AES-256-GCM protects file contents.
+        </p>
+
+    </div>
+
+
+
+    <div class="note panel">
+
+        <b>
+            02 / VERIFY
+        </b>
+
+
+        <p>
+            HMAC-SHA256 helps detect stored-file changes.
+        </p>
+
+    </div>
+
+
+
+    <div class="note panel">
+
+        <b>
+            03 / STORE
+        </b>
+
+
+        <p>
+            Only the encrypted file is kept in vault storage.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,141 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Settings | VAULTEX
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- PAGE HEADING -->
+
+<section class="page-heading">
+
+    <p class="eyebrow">
+        04 / ACCOUNT
+    </p>
+
+
+    <h1>
+
+        Your <em>settings.</em>
+
+    </h1>
+
+
+    <p class="muted">
+
+        Account information for your current
+        VAULTEX session.
+
+    </p>
+
+</section>
+
+
+
+<!-- USER PROFILE -->
+
+<div class="panel settings-panel">
+
+
+    <div class="profile-symbol">
+
+        {{ current_user.username[:1]|upper }}
+
+    </div>
+
+
+    <div>
+
+        <p class="eyebrow">
+            SIGNED-IN ACCOUNT
+        </p>
+
+
+        <h2>
+            {{ current_user.username }}
+        </h2>
+
+
+        <p class="muted">
+            {{ current_user.email }}
+        </p>
+
+    </div>
+
+
+    <span class="status">
+        AUTHENTICATED
+    </span>
+
+
+</div>
+
+
+
+<!-- SESSION SECURITY -->
+
+<div class="panel settings-panel">
+
+    <div>
+
+        <p class="eyebrow">
+            SESSION PROTECTION
+        </p>
+
+
+        <h2>
+            Cookie security
+        </h2>
+
+
+        <p class="muted">
+
+            HttpOnly and SameSite protections
+            are configured.
+            Secure cookies are enabled when
+            HTTPS mode is configured.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- KEY MANAGEMENT -->
+
+<div class="panel settings-panel">
+
+    <div>
+
+        <p class="eyebrow">
+            KEY MANAGEMENT
+        </p>
+
+
+        <h2>
+            Private environment keys
+        </h2>
+
+
+        <p class="muted">
+
+            Application, encryption and integrity
+            secrets are loaded from your private
+            .env file.
+
+            Never publish these values.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

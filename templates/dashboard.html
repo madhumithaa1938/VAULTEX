@@ -1,0 +1,281 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Overview | VAULTEX
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <div>
+
+        <p class="eyebrow">
+            PERSONAL SECURITY SPACE / 01
+        </p>
+
+
+        <h1>
+
+            Good to see you,<br>
+
+            <em>{{ current_user.username }}.</em>
+
+        </h1>
+
+
+        <p class="muted">
+
+            Your private digital vault is ready.
+            Keep your important files protected and organised.
+
+        </p>
+
+
+        <a
+            class="button primary"
+            href="{{ url_for('upload.upload_page') }}"
+        >
+
+            Upload a file
+
+            <span>↗</span>
+
+        </a>
+
+    </div>
+
+
+
+    <!-- 3D VAULT VISUAL -->
+
+    <div class="hero-vault">
+
+        <div class="orbit orbit-a"></div>
+
+        <div class="orbit orbit-b"></div>
+
+
+        <div class="vault-door">
+
+            <div class="door-handle"></div>
+
+            <b>V</b>
+
+        </div>
+
+
+        <span class="orbit-label">
+            ENCRYPTED SPACE
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- OVERVIEW HEADING -->
+
+<section class="section-head">
+
+    <div>
+
+        <p class="eyebrow">
+            YOUR WORKSPACE
+        </p>
+
+        <h2>
+            Vault overview
+        </h2>
+
+    </div>
+
+
+    <span class="live-dot">
+        PRIVATE SESSION
+    </span>
+
+</section>
+
+
+
+<!-- SECURITY METRICS -->
+
+<div class="card-grid">
+
+
+    <article class="metric panel">
+
+        <span class="metric-icon">
+            ▤
+        </span>
+
+
+        <p>
+            Secure storage
+        </p>
+
+
+        <h3>
+            Encrypted
+        </h3>
+
+
+        <small>
+            Files are encrypted before storage
+        </small>
+
+    </article>
+
+
+
+    <article class="metric panel">
+
+        <span class="metric-icon">
+            ⌁
+        </span>
+
+
+        <p>
+            Integrity layer
+        </p>
+
+
+        <h3>
+            HMAC-SHA256
+        </h3>
+
+
+        <small>
+            Checked before decryption
+        </small>
+
+    </article>
+
+
+
+    <article class="metric panel">
+
+        <span class="metric-icon">
+            ◈
+        </span>
+
+
+        <p>
+            Encryption
+        </p>
+
+
+        <h3>
+            AES-256-GCM
+        </h3>
+
+
+        <small>
+            Authenticated encryption
+        </small>
+
+    </article>
+
+</div>
+
+
+
+<!-- QUICK ACTIONS -->
+
+<section class="action-grid">
+
+
+    <a
+        class="action-card panel"
+        href="{{ url_for('upload.upload_page') }}"
+    >
+
+        <span>
+            01 / TRANSFER
+        </span>
+
+
+        <h3>
+            Secure upload
+        </h3>
+
+
+        <p>
+            Encrypt a file and add it to your vault.
+        </p>
+
+
+        <b>
+            Start upload ↗
+        </b>
+
+    </a>
+
+
+
+    <a
+        class="action-card panel"
+        href="{{ url_for('files_page') }}"
+    >
+
+        <span>
+            02 / LIBRARY
+        </span>
+
+
+        <h3>
+            Your files
+        </h3>
+
+
+        <p>
+            View your stored files and retrieve them.
+        </p>
+
+
+        <b>
+            Open library ↗
+        </b>
+
+    </a>
+
+
+
+    <a
+        class="action-card panel"
+        href="{{ url_for('security_page') }}"
+    >
+
+        <span>
+            03 / PROTECTION
+        </span>
+
+
+        <h3>
+            Security centre
+        </h3>
+
+
+        <p>
+            Understand the protection layers in VAULTEX.
+        </p>
+
+
+        <b>
+            Explore security ↗
+        </b>
+
+    </a>
+
+
+</section>
+
+
+{% endblock %}

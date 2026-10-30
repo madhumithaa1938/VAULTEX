@@ -1,0 +1,159 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Create account | VAULTEX
+{% endblock %}
+
+
+{% block content %}
+
+<section class="auth-layout">
+
+
+    <!-- Left side introduction -->
+
+    <div class="auth-intro">
+
+        <div class="vault-art">
+
+            <div class="vault-ring"></div>
+
+            <div class="vault-center">
+                V
+            </div>
+
+        </div>
+
+
+        <p class="eyebrow">
+            YOUR SPACE. YOUR RULES.
+        </p>
+
+
+        <h1>
+            Build your<br>
+            <em>private vault.</em>
+        </h1>
+
+
+        <p class="muted">
+            Create an account to store and retrieve encrypted files.
+        </p>
+
+    </div>
+
+
+
+    <!-- Registration form -->
+
+    <form
+        class="panel auth-form"
+        method="POST"
+    >
+
+        <input
+            type="hidden"
+            name="csrf_token"
+            value="{{ csrf_token() }}"
+        >
+
+
+        <p class="eyebrow">
+            GET STARTED
+        </p>
+
+
+        <h2>
+            Create account
+        </h2>
+
+
+        <p class="muted">
+            A few details to set up your vault.
+        </p>
+
+
+
+        <label>
+
+            Username
+
+            <input
+                type="text"
+                name="username"
+                minlength="3"
+                maxlength="50"
+                autocomplete="username"
+                required
+            >
+
+        </label>
+
+
+
+        <label>
+
+            Email address
+
+            <input
+                type="email"
+                name="email"
+                maxlength="254"
+                autocomplete="email"
+                required
+            >
+
+        </label>
+
+
+
+        <label>
+
+            Password
+
+            <input
+                type="password"
+                name="password"
+                minlength="12"
+                maxlength="128"
+                autocomplete="new-password"
+                required
+            >
+
+            <small>
+                Use at least 12 characters.
+            </small>
+
+        </label>
+
+
+
+        <button
+            class="button primary full"
+            type="submit"
+        >
+
+            Create secure account
+
+            <span>↗</span>
+
+        </button>
+
+
+
+        <p class="form-foot">
+
+            Already registered?
+
+            <a href="{{ url_for('auth.login') }}">
+                Sign in
+            </a>
+
+        </p>
+
+    </form>
+
+</section>
+
+{% endblock %}
